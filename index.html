@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsenal FC — Hinchada Argentina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Merriweather:wght@300;400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-crest">
+        <div class="crest">⚔</div>
+        <div class="nav-brand">
+          <span class="nav-brand-main">ARSENAL FC</span>
+          <span class="nav-brand-sub">Hinchada Argentina</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#temporada">Temporada</a></li>
+        <li><a href="#plantilla">Plantilla</a></li>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+      </ul>
+      <button class="nav-burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#inicio" class="mm-link">Inicio</a></li>
+      <li><a href="#temporada" class="mm-link">Temporada</a></li>
+      <li><a href="#plantilla" class="mm-link">Plantilla</a></li>
+      <li><a href="#historia" class="mm-link">Historia</a></li>
+      <li><a href="#resultados" class="mm-link">Resultados</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <div class="hero-stripe s1"></div>
+      <div class="hero-stripe s2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Temporada 2025 / 26</p>
+      <h1 class="hero-title">
+        <span>The</span>
+        <span class="red">Gunners</span>
+      </h1>
+      <p class="hero-subtitle">La pasión por el Arsenal desde la Argentina.<br>Seguí al equipo, conocé la historia, vivila con nosotros.</p>
+      <div class="hero-badges">
+        <div class="badge badge-gold">
+          <span class="badge-num">1°</span>
+          <span class="badge-label">Premier League</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">1886</span>
+          <span class="badge-label">Fundado</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">13</span>
+          <span class="badge-label">Ligas ganadas</span>
+        </div>
+        <div class="badge">
+          <span class="badge-num">14</span>
+          <span class="badge-label">FA Cups</span>
+        </div>
+      </div>
+      <a href="#temporada" class="hero-cta">Ver la temporada ↓</a>
+    </div>
+    <div class="hero-cannon">
+      <div class="cannon-wrap">💣</div>
+    </div>
+  </section>
+
+  <!-- TEMPORADA -->
+  <section class="section" id="temporada">
+    <div class="container">
+      <div class="section-label">2025 / 26</div>
+      <h2 class="section-title">Temporada en curso</h2>
+      <p class="section-desc">Arsenal está primero en la Premier League, en semifinales de la Champions League y acaba de ganar la EFL Cup. Una campaña histórica.</p>
+
+      <div class="season-grid">
+
+        <div class="season-card season-card-main reveal">
+          <div class="season-card-header">
+            <span class="comp-badge epl">PL</span>
+            <span class="comp-name">Premier League</span>
+          </div>
+          <div class="season-stat-big">1°</div>
+          <div class="season-details">
+            <div class="sd-row"><span>Puntos</span><strong>61+</strong></div>
+            <div class="sd-row"><span>Partidos</span><strong>28+</strong></div>
+            <div class="sd-row"><span>Estado</span><strong class="green">Líder</strong></div>
+          </div>
+        </div>
+
+        <div class="season-card reveal" style="--delay:0.1s">
+          <div class="season-card-header">
+            <span class="comp-badge ucl">UCL</span>
+            <span class="comp-name">Champions League</span>
+          </div>
+          <div class="season-stat-big" style="font-size:1.8rem">SF</div>
+          <div class="season-details">
+            <div class="sd-row"><span>Fase</span><strong>Semifinales</strong></div>
+            <div class="sd-row"><span>Rival</span><strong>Sporting CP</strong></div>
+            <div class="sd-row"><span>Hito</span><strong class="green">Eliminó al Real Madrid</strong></div>
+          </div>
+        </div>
+
+        <div class="season-card reveal" style="--delay:0.2s">
+          <div class="season-card-header">
+            <span class="comp-badge efl">EFL</span>
+            <span class="comp-name">EFL Cup</span>
+          </div>
+          <div class="season-stat-big">🏆</div>
+          <div class="season-details">
+            <div class="sd-row"><span>Final</span><strong>vs Manchester City</strong></div>
+            <div class="sd-row"><span>Sede</span><strong>Wembley</strong></div>
+            <div class="sd-row"><span>Estado</span><strong class="gold">¡Campeones!</strong></div>
+          </div>
+        </div>
+
+        <div class="season-card reveal" style="--delay:0.3s">
+          <div class="season-card-header">
+            <span class="comp-badge fa">FA</span>
+            <span class="comp-name">FA Cup</span>
+          </div>
+          <div class="season-stat-big" style="font-size:1.8rem">En curso</div>
+          <div class="season-details">
+            <div class="sd-row"><span>Competición</span><strong>FA Cup</strong></div>
+            <div class="sd-row"><span>Temporada</span><strong>2025/26</strong></div>
+            <div class="sd-row"><span>Estado</span><strong class="green">Activo</strong></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANTILLA -->
+  <section class="section section-alt" id="plantilla">
+    <div class="container">
+      <div class="section-label">2025 / 26</div>
+      <h2 class="section-title">Plantilla</h2>
+      <p class="section-desc">Los jugadores que visten la camiseta roja esta temporada.</p>
+
+      <div class="position-tabs">
+        <button class="pos-tab active" data-pos="all">Todos</button>
+        <button class="pos-tab" data-pos="gk">Porteros</button>
+        <button class="pos-tab" data-pos="def">Defensores</button>
+        <button class="pos-tab" data-pos="mid">Mediocampistas</button>
+        <button class="pos-tab" data-pos="fwd">Delanteros</button>
+      </div>
+
+      <div class="squad-grid" id="squadGrid">
+        <!-- Porteros -->
+        <div class="player-card reveal" data-pos="gk">
+          <div class="player-num">1</div>
+          <div class="player-info">
+            <div class="player-name">David Raya</div>
+            <div class="player-nat">🇪🇸 España</div>
+          </div>
+          <div class="player-pos gk">POR</div>
+        </div>
+        <div class="player-card reveal" data-pos="gk">
+          <div class="player-num">13</div>
+          <div class="player-info">
+            <div class="player-name">Kepa Arrizabalaga</div>
+            <div class="player-nat">🇪🇸 España</div>
+          </div>
+          <div class="player-pos gk">POR</div>
+        </div>
+
+        <!-- Defensores -->
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">2</div>
+          <div class="player-info">
+            <div class="player-name">William Saliba</div>
+            <div class="player-nat">🇫🇷 Francia</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">3</div>
+          <div class="player-info">
+            <div class="player-name">Cristhian Mosquera</div>
+            <div class="player-nat">🇨🇴 Colombia</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">4</div>
+          <div class="player-info">
+            <div class="player-name">Ben White</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">5</div>
+          <div class="player-info">
+            <div class="player-name">Piero Hincapié</div>
+            <div class="player-nat">🇪🇨 Ecuador</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">6</div>
+          <div class="player-info">
+            <div class="player-name">Gabriel Magalhães</div>
+            <div class="player-nat">🇧🇷 Brasil</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">12</div>
+          <div class="player-info">
+            <div class="player-name">Jurrien Timber</div>
+            <div class="player-nat">🇳🇱 Holanda</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">33</div>
+          <div class="player-info">
+            <div class="player-name">Riccardo Calafiori</div>
+            <div class="player-nat">🇮🇹 Italia</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+        <div class="player-card reveal" data-pos="def">
+          <div class="player-num">49</div>
+          <div class="player-info">
+            <div class="player-name">Myles Lewis-Skelly</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos def">DEF</div>
+        </div>
+
+        <!-- Mediocampistas -->
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">8</div>
+          <div class="player-info">
+            <div class="player-name">Martin Ødegaard</div>
+            <div class="player-nat">🇳🇴 Noruega</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">16</div>
+          <div class="player-info">
+            <div class="player-name">Christian Nørgaard</div>
+            <div class="player-nat">🇩🇰 Dinamarca</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">23</div>
+          <div class="player-info">
+            <div class="player-name">Mikel Merino</div>
+            <div class="player-nat">🇪🇸 España</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">36</div>
+          <div class="player-info">
+            <div class="player-name">Martín Zubimendi</div>
+            <div class="player-nat">🇪🇸 España</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">41</div>
+          <div class="player-info">
+            <div class="player-name">Declan Rice</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+        <div class="player-card reveal" data-pos="mid">
+          <div class="player-num">29</div>
+          <div class="player-info">
+            <div class="player-name">Kai Havertz</div>
+            <div class="player-nat">🇩🇪 Alemania</div>
+          </div>
+          <div class="player-pos mid">MED</div>
+        </div>
+
+        <!-- Delanteros -->
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">7</div>
+          <div class="player-info">
+            <div class="player-name">Bukayo Saka</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">9</div>
+          <div class="player-info">
+            <div class="player-name">Gabriel Jesus</div>
+            <div class="player-nat">🇧🇷 Brasil</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">10</div>
+          <div class="player-info">
+            <div class="player-name">Eberechi Eze</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">11</div>
+          <div class="player-info">
+            <div class="player-name">Gabriel Martinelli</div>
+            <div class="player-nat">🇧🇷 Brasil</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">14</div>
+          <div class="player-info">
+            <div class="player-name">Viktor Gyökeres</div>
+            <div class="player-nat">🇸🇪 Suecia</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">19</div>
+          <div class="player-info">
+            <div class="player-name">Leandro Trossard</div>
+            <div class="player-nat">🇧🇪 Bélgica</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+        <div class="player-card reveal" data-pos="fwd">
+          <div class="player-num">20</div>
+          <div class="player-info">
+            <div class="player-name">Noni Madueke</div>
+            <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
+          </div>
+          <div class="player-pos fwd">DEL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section class="section" id="historia">
+    <div class="container">
+      <div class="section-label">Desde 1886</div>
+      <h2 class="section-title">Historia del club</h2>
+      <p class="section-desc">Más de 130 años de gloria, pasión y fútbol de ataque.</p>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-year">1886</div>
+          <div class="tl-content">
+            <h3>Fundación en Woolwich</h3>
+            <p>Trabajadores de la fábrica Royal Arsenal en Woolwich, Londres, fundan el club como <em>Dial Square</em>. Es uno de los clubes más antiguos del fútbol profesional inglés.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">1913</div>
+          <div class="tl-content">
+            <h3>Mudanza al norte de Londres</h3>
+            <p>El club se traslada de Woolwich a Highbury, en el norte de Londres, comenzando una rivalidad eterna con el Tottenham Hotspur — el <em>North London Derby</em>.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">1930s</div>
+          <div class="tl-content">
+            <h3>La era Herbert Chapman</h3>
+            <p>Bajo la dirección de Herbert Chapman, Arsenal domina la First Division ganando cinco títulos de liga en la década. Chapman revolucionó el fútbol moderno con el sistema WM.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">1971</div>
+          <div class="tl-content">
+            <h3>Primer doblete</h3>
+            <p>Arsenal completa el primer doblete de su historia ganando la First Division y la FA Cup en la misma temporada bajo el mando de Bertie Mee.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">1989</div>
+          <div class="tl-content">
+            <h3>El milagro de Anfield</h3>
+            <p>En el último minuto del último partido de la temporada, Michael Thomas marca en Anfield y Arsenal le arrebata la liga al Liverpool de la manera más dramática posible.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2003–04</div>
+          <div class="tl-content">
+            <h3>Los Invencibles ⭐</h3>
+            <p>Bajo la dirección de Arsène Wenger, el Arsenal de Henry, Bergkamp, Pires y Vieira termina la Premier League invicto — 26 victorias, 12 empates, cero derrotas. Irrepetible.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2006</div>
+          <div class="tl-content">
+            <h3>El Emirates Stadium</h3>
+            <p>Arsenal se muda de Highbury al nuevo Emirates Stadium con capacidad para 60.704 espectadores, uno de los estadios más modernos de Europa.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2025–26</div>
+          <div class="tl-content">
+            <h3>La era Arteta — resurgimiento</h3>
+            <p>Con Mikel Arteta al mando, Arsenal lidera la Premier League, conquista la EFL Cup y llega a las semifinales de la Champions League eliminando al Real Madrid. La espera por la liga se acerca a su fin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section class="section section-alt" id="resultados">
+    <div class="container">
+      <div class="section-label">En vivo</div>
+      <h2 class="section-title">Resultados recientes</h2>
+      <p class="section-desc">Últimos partidos del Arsenal. Los datos se actualizan automáticamente.</p>
+
+      <div class="results-controls">
+        <button class="filter-btn active" data-comp="all">Todos</button>
+        <button class="filter-btn" data-comp="PL">Premier League</button>
+        <button class="filter-btn" data-comp="UCL">Champions</button>
+        <button class="filter-btn" data-comp="EFL">EFL Cup</button>
+      </div>
+
+      <div class="results-list" id="resultsList">
+        <div class="loading-results">Cargando resultados...</div>
+      </div>
+
+      <div class="api-note">
+        ℹ️ Los resultados se obtienen de la API pública de football-data.org
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-crest">⚔</span>
+        <div>
+          <div class="footer-name">Arsenal FC</div>
+          <div class="footer-sub">Hinchada Argentina</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.arsenal.com" target="_blank">Arsenal Oficial</a>
+        <a href="https://github.com/lucianoyague/arsenal-arg" target="_blank">GitHub</a>
+      </div>
+      <div class="footer-copy">
+        Hecho por Luciano Yague desde Argentina · No afiliado al Arsenal FC oficial
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
