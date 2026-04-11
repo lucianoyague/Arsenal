@@ -276,7 +276,14 @@ img { display: block; max-width: 100%; }
   z-index: 1;
   animation: float 3s ease-in-out infinite;
 }
-.cannon-wrap { font-size: clamp(6rem, 15vw, 14rem); opacity: 0.12; }
+.cannon-wrap { 
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 700;
+  color: var(--red);
+  opacity: 0.08;
+  letter-spacing: 0.1em;
+}
 
 /* ── SECTIONS ── */
 .section { padding: 6rem 0; }
