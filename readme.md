@@ -2,11 +2,6 @@
 
 Página de fan dedicada al Arsenal FC, hecha para hinchas argentinos. Construida con **HTML · CSS · JavaScript** vanilla.
 
-## 🚀 Demo
-
-> [lucianoyague.github.io/arsenal-arg](https://lucianoyague.github.io/arsenal-arg)
-
----
 
 ## 📁 Estructura
 
@@ -18,7 +13,7 @@ arsenal-arg/
 └── README.md
 ```
 
-## ✨ Secciones
+##  Secciones
 
 - **Hero** — Presentación con estadísticas de la temporada
 - **Temporada 2025/26** — Estado en PL, Champions, EFL Cup y FA Cup
@@ -26,7 +21,7 @@ arsenal-arg/
 - **Historia** — Timeline desde 1886 hasta la era Arteta
 - **Resultados** — Últimos partidos cargados desde API externa
 
-## 💡 Qué practiqué
+## Qué practiqué
 
 - **`fetch()`** para consumir la API de football-data.org
 - Manejo de errores con **`try/catch`** y datos de respaldo
