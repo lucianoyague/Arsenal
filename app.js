@@ -1,7 +1,176 @@
 /* =============================================
    app.js — Arsenal FC Hinchada Argentina
-   Practica: fetch(), DOM, eventos, Observer
+   Practica: fetch(), DOM, eventos, Observer, modal
    ============================================= */
+
+// ── DATOS DE JUGADORES (temporada 2025/26) ────
+const PLAYERS = {
+  // PORTEROS
+  1: {
+    name: 'David Raya', nat: '🇪🇸 España', age: 29, height: 183,
+    pos: 'Portero', num: 1,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p220690.png',
+    bio: 'Portero titular indiscutido. Llegó cedido del Brentford en 2023 y fue fichado definitivamente. Referente bajo los tres palos con excelentes reflejos y gran dominio del juego con los pies.',
+    goals: 0, assists: 0, matches: 28, minutes: 2520, yellow: 1, value: '€28M'
+  },
+  13: {
+    name: 'Kepa Arrizabalaga', nat: '🇪🇸 España', age: 30, height: 186,
+    pos: 'Portero', num: 13,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p172871.png',
+    bio: 'Suplente de lujo. Ex portero del Chelsea y Athletic Club, llegó este verano como alternativa de calidad a Raya. Fue protagonista con grandes intervenciones en la EFL Cup.',
+    goals: 0, assists: 0, matches: 8, minutes: 720, yellow: 0, value: '€8M'
+  },
+  // DEFENSORES
+  2: {
+    name: 'William Saliba', nat: '🇫🇷 Francia', age: 24, height: 192,
+    pos: 'Defensor Central', num: 2,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p226597.png',
+    bio: 'Considerado uno de los mejores defensores del mundo. Imponente en el juego aéreo, veloz y seguro en el uno contra uno. Pilar fundamental en la defensa de Arteta desde 2022.',
+    goals: 2, assists: 1, matches: 30, minutes: 2700, yellow: 2, value: '€120M'
+  },
+  3: {
+    name: 'Cristhian Mosquera', nat: '🇨🇴 Colombia', age: 21, height: 187,
+    pos: 'Defensor Central', num: 3,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p591986.png',
+    bio: 'Joven promesa colombiana llegada del Valencia en el verano 2025. Reemplazó a Kieran Tierney con el dorsal 3. Rápido, agresivo y con gran proyección ofensiva por la banda izquierda.',
+    goals: 0, assists: 2, matches: 20, minutes: 1620, yellow: 3, value: '€30M'
+  },
+  4: {
+    name: 'Ben White', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 27, height: 183,
+    pos: 'Defensor / Lateral derecho', num: 4,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p180150.png',
+    bio: 'Versátil defensor inglés que puede jugar de central o lateral derecho. Excelente en la salida del juego y con gran capacidad para incorporarse al ataque por la derecha.',
+    goals: 0, assists: 1, matches: 18, minutes: 1440, yellow: 1, value: '€45M'
+  },
+  5: {
+    name: 'Piero Hincapié', nat: '🇪🇨 Ecuador', age: 23, height: 181,
+    pos: 'Defensor Central / Lateral', num: 5,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p471649.png',
+    bio: 'Internacional ecuatoriano llegado del Bayer Leverkusen. Zurdo natural con gran capacidad de anticipación y lectura del juego. Su llegada reforzó considerablemente el lateral izquierdo.',
+    goals: 0, assists: 1, matches: 22, minutes: 1800, yellow: 2, value: '€38M'
+  },
+  6: {
+    name: 'Gabriel Magalhães', nat: '🇧🇷 Brasil', age: 27, height: 190,
+    pos: 'Defensor Central', num: 6,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p213345.png',
+    bio: 'El corazón de la defensa arsenal. Combina potencia física con una técnica depurada. Goleador en situaciones de pelota parada. Renovó su contrato a largo plazo en junio de 2025.',
+    goals: 3, assists: 0, matches: 29, minutes: 2520, yellow: 3, value: '€70M'
+  },
+  12: {
+    name: 'Jurrien Timber', nat: '🇳🇱 Holanda', age: 23, height: 181,
+    pos: 'Defensor / Lateral', num: 12,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p461623.png',
+    bio: 'Polivalente defensor holandés con gran capacidad técnica. Tras perderse casi toda su primera temporada por lesión, explotó definitivamente en 2025/26 siendo uno de los mejores del equipo con 3 goles.',
+    goals: 3, assists: 3, matches: 30, minutes: 2610, yellow: 2, value: '€65M'
+  },
+  33: {
+    name: 'Riccardo Calafiori', nat: '🇮🇹 Italia', age: 22, height: 187,
+    pos: 'Defensor Central / Lateral', num: 33,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p490745.png',
+    bio: 'Lateral izquierdo con alma de centrocampista. Su capacidad para salir jugando y su visión de juego lo hacen único. Llegado del Bologna, fue una de las revelaciones de la Euro 2024 con Italia.',
+    goals: 1, assists: 2, matches: 25, minutes: 1980, yellow: 4, value: '€55M'
+  },
+  49: {
+    name: 'Myles Lewis-Skelly', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 18, height: 179,
+    pos: 'Lateral Izquierdo / Mediocampista', num: 49,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p571615.png',
+    bio: 'La joya de la cantera del Arsenal. Con apenas 18 años se ganó un lugar en el equipo titular gracias a su valentía, inteligencia táctica y calidad técnica. Renovó su contrato en junio 2025.',
+    goals: 1, assists: 2, matches: 28, minutes: 2100, yellow: 2, value: '€30M'
+  },
+  // MEDIOCAMPISTAS
+  8: {
+    name: 'Martin Ødegaard', nat: '🇳🇴 Noruega', age: 27, height: 178,
+    pos: 'Mediocampista Central', num: 8,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p184029.png',
+    bio: 'Capitán y cerebro del Arsenal. Ex prodigio del Real Madrid, Ødegaard es el motor creativo del equipo con una visión de juego extraordinaria. Registró 1 gol y 5 asistencias en la PL esta temporada.',
+    goals: 3, assists: 7, matches: 25, minutes: 2078, yellow: 2, value: '€65M'
+  },
+  16: {
+    name: 'Christian Nørgaard', nat: '🇩🇰 Dinamarca', age: 31, height: 187,
+    pos: 'Mediocampista Defensivo', num: 16,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p128921.png',
+    bio: 'Mediocampista defensivo llegado del Brentford en verano 2025. Conocido por su intensidad, capacidad de recuperación y liderazgo. Aporta experiencia y músculo al medio del campo.',
+    goals: 0, assists: 1, matches: 22, minutes: 1620, yellow: 3, value: '€18M'
+  },
+  23: {
+    name: 'Mikel Merino', nat: '🇪🇸 España', age: 28, height: 191,
+    pos: 'Mediocampista', num: 23,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p219353.png',
+    bio: 'Llegado de la Real Sociedad en 2024, el español se asentó como pieza clave en la temporada 2025/26. Combina físico imponente con una técnica refinada y gran sentido goleador.',
+    goals: 4, assists: 2, matches: 28, minutes: 2100, yellow: 3, value: '€45M'
+  },
+  36: {
+    name: 'Martín Zubimendi', nat: '🇪🇸 España', age: 26, height: 180,
+    pos: 'Mediocampista Defensivo', num: 36,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p461397.png',
+    bio: 'Uno de los mejores mediocampistas defensivos del mundo. Elegó el dorsal 36 con el que debutó en la Real Sociedad. Su capacidad para interceptar, distribuir y romper líneas lo hace imprescindible.',
+    goals: 5, assists: 3, matches: 31, minutes: 2610, yellow: 2, value: '€80M'
+  },
+  41: {
+    name: 'Declan Rice', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 26, height: 185,
+    pos: 'Mediocampista Central', num: 41,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p204480.png',
+    bio: 'Fichaje récord en 2023, Rice es el motor incansable del Arsenal. Lidera en recuperaciones de balón (36), conducciones progresivas (145) y lleva su forma de 2024/25 a una nueva dimensión esta temporada.',
+    goals: 4, assists: 4, matches: 30, minutes: 2700, yellow: 4, value: '€120M'
+  },
+  29: {
+    name: 'Kai Havertz', nat: '🇩🇪 Alemania', age: 26, height: 193,
+    pos: 'Mediocampista / Delantero', num: 29,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p227672.png',
+    bio: 'Versátil y elegante, el alemán puede jugar como mediapunta o falso 9. Ha encontrado su mejor versión en el Arsenal con goles importantes y una comprensión táctica superior.',
+    goals: 3, assists: 2, matches: 26, minutes: 1980, yellow: 1, value: '€50M'
+  },
+  // DELANTEROS
+  7: {
+    name: 'Bukayo Saka', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 23, height: 178,
+    pos: 'Extremo Derecho', num: 7,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p244851.png',
+    bio: 'El mejor jugador del Arsenal y uno de los mejores del mundo. Capitán inglés con una técnica sublime, velocidad devastadora y un remate preciso. Líder goleador con 6 tantos en la PL esta temporada.',
+    goals: 11, assists: 6, matches: 27, minutes: 2340, yellow: 1, value: '€180M'
+  },
+  9: {
+    name: 'Gabriel Jesus', nat: '🇧🇷 Brasil', age: 28, height: 175,
+    pos: 'Delantero Centro', num: 9,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p205651.png',
+    bio: 'Delantero brasileño con gran movilidad y trabajo defensivo. Regresó de una dura lesión para aportar sus goles y sacrificio al equipo. Su pressing alto es fundamental en el sistema de Arteta.',
+    goals: 2, assists: 2, matches: 20, minutes: 1260, yellow: 1, value: '€20M'
+  },
+  10: {
+    name: 'Eberechi Eze', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 27, height: 178,
+    pos: 'Extremo / Mediapunta', num: 10,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p209114.png',
+    bio: 'Fichaje estrella del verano 2025 proveniente del Crystal Palace. Tomó la mítica camiseta número 10. Zurdo con un regate desequilibrante y un disparo potentísimo. Ya lleva 6 goles en la PL.',
+    goals: 9, assists: 4, matches: 29, minutes: 2340, yellow: 2, value: '€80M'
+  },
+  11: {
+    name: 'Gabriel Martinelli', nat: '🇧🇷 Brasil', age: 24, height: 180,
+    pos: 'Extremo Izquierdo', num: 11,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p219717.png',
+    bio: 'Explosivo extremo brasileño con una velocidad brutal. Junto a Saka y Gyökeres forma el trío ofensivo más temido de la Premier League. Tiene una energía inagotable y un gran olfato goleador.',
+    goals: 8, assists: 5, matches: 29, minutes: 2160, yellow: 2, value: '€80M'
+  },
+  14: {
+    name: 'Viktor Gyökeres', nat: '🇸🇪 Suecia', age: 27, height: 187,
+    pos: 'Delantero Centro', num: 14,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p462580.png',
+    bio: 'El goleador que Arsenal necesitaba. Llegó del Sporting CP con el mítico dorsal 14 de Thierry Henry. Lleva 11 goles en la PL y es el máximo goleador del equipo. Potente, rápido y letal en el área.',
+    goals: 22, assists: 5, matches: 29, minutes: 2430, yellow: 3, value: '€100M'
+  },
+  19: {
+    name: 'Leandro Trossard', nat: '🇧🇪 Bélgica', age: 30, height: 172,
+    pos: 'Extremo / Delantero', num: 19,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p211339.png',
+    bio: 'El hombre para todo de Arteta. Puede jugar en cualquier posición ofensiva con la misma calidad. Tiene 5 goles en la PL y su experiencia y polivalencia lo hacen imprescindible para la rotación.',
+    goals: 7, assists: 6, matches: 28, minutes: 1980, yellow: 1, value: '€35M'
+  },
+  20: {
+    name: 'Noni Madueke', nat: '🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra', age: 23, height: 182,
+    pos: 'Extremo Derecho', num: 20,
+    photo: 'https://resources.premierleague.com/premierleague/photos/players/250x250/p461413.png',
+    bio: 'Llegado del Chelsea en el verano 2025, el joven extremo inglés aporta velocidad, regate y gol desde la derecha. Su llegada añade profundidad y competencia en la posición de Saka.',
+    goals: 4, assists: 3, matches: 25, minutes: 1620, yellow: 2, value: '€50M'
+  },
+};
 
 // ── 1. NAV activo al scrollear ────────────────
 const nav     = document.getElementById('nav');
@@ -192,3 +361,81 @@ loadResults();
 // ── 6. Año en footer ──────────────────────────
 console.log('%c⚔ Arsenal FC — Hinchada Argentina', 'color: #EF0107; font-size: 14px; font-weight: bold;');
 console.log('%cHecho con HTML · CSS · JS desde Argentina', 'color: #888;');
+
+
+// ── MODAL DE JUGADOR ──────────────────────────
+const playerModal      = document.getElementById('playerModal');
+const playerModalClose = document.getElementById('playerModalClose');
+
+const POS_COLORS = {
+  'Portero':                    'gk',
+  'Defensor Central':           'def',
+  'Defensor / Lateral derecho': 'def',
+  'Defensor / Lateral':         'def',
+  'Lateral Izquierdo / Mediocampista': 'def',
+  'Mediocampista Central':      'mid',
+  'Mediocampista Defensivo':    'mid',
+  'Mediocampista':              'mid',
+  'Mediocampista / Delantero':  'mid',
+  'Extremo Derecho':            'fwd',
+  'Extremo Izquierdo':          'fwd',
+  'Extremo / Mediapunta':       'fwd',
+  'Extremo / Delantero':        'fwd',
+  'Delantero Centro':           'fwd',
+};
+
+function openPlayerModal(num) {
+  const p = PLAYERS[num];
+  if (!p) return;
+
+  document.getElementById('pmName').textContent    = p.name;
+  document.getElementById('pmNat').textContent     = p.nat;
+  document.getElementById('pmAge').textContent     = p.age;
+  document.getElementById('pmHeight').textContent  = p.height;
+  document.getElementById('pmBio').textContent     = p.bio;
+  document.getElementById('pmNumBg').textContent   = p.num;
+  document.getElementById('pmGoals').textContent   = p.goals;
+  document.getElementById('pmAssists').textContent = p.assists;
+  document.getElementById('pmMatches').textContent = p.matches;
+  document.getElementById('pmMinutes').textContent = p.minutes.toLocaleString('es-AR');
+  document.getElementById('pmYellow').textContent  = p.yellow;
+  document.getElementById('pmValue').textContent   = p.value;
+
+  const posEl = document.getElementById('pmPos');
+  posEl.textContent = p.pos;
+  posEl.className   = `pm-pos-badge player-pos ${POS_COLORS[p.pos] || 'mid'}`;
+
+  const photo = document.getElementById('pmPhoto');
+  photo.src = p.photo;
+  photo.alt = p.name;
+  photo.onerror = () => {
+    // Fallback si la foto no carga
+    photo.style.display = 'none';
+    document.querySelector('.pm-photo-wrap').style.background = 'var(--surface2)';
+  };
+
+  playerModal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePlayerModal() {
+  playerModal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Click en tarjeta de jugador
+document.querySelectorAll('.player-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const num = parseInt(card.querySelector('.player-num').textContent);
+    openPlayerModal(num);
+  });
+});
+
+// Cerrar modal
+playerModalClose.addEventListener('click', closePlayerModal);
+playerModal.addEventListener('click', e => {
+  if (e.target === playerModal) closePlayerModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePlayerModal();
+});

@@ -15,7 +15,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#inicio" class="nav-crest">
-        <div class="crest">⚔</div>
+        <div class="crest"><img src="arsenal.logo2.png" alt="Arsenal FC" /></div>
         <div class="nav-brand">
           <span class="nav-brand-main">ARSENAL FC</span>
           <span class="nav-brand-sub">Hinchada Argentina</span>
@@ -88,7 +88,7 @@
     <div class="container">
       <div class="section-label">2025 / 26</div>
       <h2 class="section-title">Temporada en curso</h2>
-      <p class="section-desc">Arsenal está primero en la Premier League, en semifinales de la Champions League y acaba de ganar la EFL Cup. Una campaña histórica.</p>
+      <p class="section-desc">Arsenal está primero en la Premier League, en cuartos de la Champions League y acaba de quedar eliminado de la FA Cup. Una campaña histórica.</p>
 
       <div class="season-grid">
 
@@ -127,7 +127,7 @@
           <div class="season-details">
             <div class="sd-row"><span>Final</span><strong>vs Manchester City</strong></div>
             <div class="sd-row"><span>Sede</span><strong>Wembley</strong></div>
-            <div class="sd-row"><span>Estado</span><strong class="gold">¡Campeones!</strong></div>
+            <div class="sd-row"><span>Estado</span><strong class="gold">Subcampeones</strong></div>
           </div>
         </div>
 
@@ -302,7 +302,7 @@
         <div class="player-card reveal" data-pos="fwd">
           <div class="player-num">7</div>
           <div class="player-info">
-            <div class="player-name">Bukayo Saka</div>
+            <div class="player-name">Bukayo Saka (goat)</div>
             <div class="player-nat">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</div>
           </div>
           <div class="player-pos fwd">DEL</div>
@@ -470,6 +470,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL JUGADOR -->
+  <div class="player-modal-overlay" id="playerModal">
+    <div class="player-modal">
+      <button class="player-modal-close" id="playerModalClose">✕</button>
+      <div class="pm-top">
+        <div class="pm-photo-wrap">
+          <img class="pm-photo" id="pmPhoto" src="" alt="" />
+          <div class="pm-num-bg" id="pmNumBg"></div>
+        </div>
+        <div class="pm-header">
+          <div class="pm-pos-badge" id="pmPos"></div>
+          <h2 class="pm-name" id="pmName"></h2>
+          <div class="pm-meta">
+            <span id="pmNat"></span>
+            <span class="pm-sep">·</span>
+            <span id="pmAge"></span> años
+            <span class="pm-sep">·</span>
+            <span id="pmHeight"></span> cm
+          </div>
+          <div class="pm-bio" id="pmBio"></div>
+        </div>
+      </div>
+      <div class="pm-stats-grid">
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmGoals">—</span>
+          <span class="pm-stat-label">Goles</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmAssists">—</span>
+          <span class="pm-stat-label">Asistencias</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmMatches">—</span>
+          <span class="pm-stat-label">Partidos</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmMinutes">—</span>
+          <span class="pm-stat-label">Minutos</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmYellow">—</span>
+          <span class="pm-stat-label">Amarillas</span>
+        </div>
+        <div class="pm-stat">
+          <span class="pm-stat-val" id="pmValue">—</span>
+          <span class="pm-stat-label">Valor mercado</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
