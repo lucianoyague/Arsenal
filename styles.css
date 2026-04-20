@@ -851,3 +851,90 @@ img { display: block; max-width: 100%; }
   .pm-top { flex-direction: column; align-items: center; text-align: center; }
   .pm-stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
+/* ── Fixtures ── */
+.fixtures-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.fixture-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.25rem;
+  display: grid;
+  grid-template-columns: 80px auto 1fr auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.fixture-item:hover { border-color: var(--red); background: rgba(239,1,7,0.04); }
+
+.fixture-item.next {
+  border-color: var(--gold);
+  background: rgba(197,160,40,0.06);
+}
+.fixture-next-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  text-align: right;
+  font-weight: 500;
+}
+
+.fixture-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+.fixture-date-day {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.fixture-date-month {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.fixture-date-time {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.fixture-vs {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-align: center;
+  padding: 0 0.25rem;
+}
+
+.fixture-team {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+}
+.fixture-team.arsenal-team { color: var(--red-light); font-weight: 600; }
+.fixture-team.right { text-align: right; }
+
+.fixture-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  min-width: 90px;
+}
+
+@media (max-width: 600px) {
+  .fixture-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .fixture-team.right { text-align: left; }
+  .fixture-meta { align-items: flex-start; }
+}

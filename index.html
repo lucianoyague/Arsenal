@@ -26,6 +26,7 @@
         <li><a href="#temporada">Temporada</a></li>
         <li><a href="#plantilla">Plantilla</a></li>
         <li><a href="#historia">Historia</a></li>
+        <li><a href="#proximos">Próximos</a></li>
         <li><a href="#resultados">Resultados</a></li>
       </ul>
       <button class="nav-burger" id="burger" aria-label="Menú">
@@ -252,7 +253,7 @@
         <div class="player-card reveal" data-pos="mid">
           <div class="player-num">8</div>
           <div class="player-info">
-            <div class="player-name">Martin Ødegaard</div>
+            <div class="player-name">Martin Ødegaard </div>
             <div class="player-nat">🇳🇴 Noruega</div>
           </div>
           <div class="player-pos mid">MED</div>
@@ -260,8 +261,8 @@
         <div class="player-card reveal" data-pos="mid">
           <div class="player-num">16</div>
           <div class="player-info">
-            <div class="player-name">Christian Nørgaard</div>
-            <div class="player-nat">🇩🇰 Dinamarca</div>
+            <div class="player-name">Christian Noorgard</div>
+            <div class="player-nat">🇩🇰 Noruega</div>
           </div>
           <div class="player-pos mid">MED</div>
         </div>
@@ -420,12 +421,29 @@
           <div class="tl-year">2025–26</div>
           <div class="tl-content">
             <h3>La era Arteta — resurgimiento</h3>
-            <p>Con Mikel Arteta al mando, Arsenal lidera la Premier League, conquista la EFL Cup y llega a las semifinales de la Champions League eliminando al Real Madrid. La espera por la liga se acerca a su fin.</p>
+            <p>Con Mikel Arteta al mando, Arsenal lidera la Premier League y llega a las semifinales de la Champions League eliminando al Real Madrid. La espera por la liga se acerca a su fin.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+<!-- PRÓXIMOS PARTIDOS -->
+<section class="section section-alt" id="proximos">
+  <div class="container">
+    <div class="section-label">2025 / 26</div>
+    <h2 class="section-title">Próximos partidos</h2>
+    <p class="section-desc">Todos los partidos que restan hasta el final de la temporada.</p>
+
+    <div class="results-controls">
+      <button class="filter-btn active" data-comp="all">Todos</button>
+      <button class="filter-btn" data-comp="PL">Premier League</button>
+      <button class="filter-btn" data-comp="UCL">Champions</button>
+    </div>
+
+    <div class="fixtures-list" id="fixturesList"></div>
+  </div>
+</section>
 
   <!-- RESULTADOS -->
   <section class="section section-alt" id="resultados">
@@ -466,7 +484,7 @@
         <a href="https://github.com/lucianoyague/arsenal-arg" target="_blank">GitHub</a>
       </div>
       <div class="footer-copy">
-        Hecho por Luciano Yague desde Argentina · No afiliado al Arsenal FC oficial
+        Hecho por Luciano Yague & Milagros Rodriguez desde Argentina · No afiliado al Arsenal FC oficial
       </div>
     </div>
   </footer>
