@@ -521,3 +521,102 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     }
   });
 });
+
+
+// ── FAMOSOS HINCHAS ───────────────────────────
+const CELEBS = [
+  {
+    name:    'Lewis Hamilton',
+    prof:    'Campeón F1 × 7',
+    flag:    '🇬🇧',
+    photo:   'fotos/hamilton.png',
+    quote:   'Me esperé toda la vida para esto. Soy hincha del Arsenal desde los 5 o 6 años, mi hermana me convenció a golpes de que no podía apoyar a nadie más.',
+    videoId: 'Qi_CTUsk5bY',
+    origin:  'Stevenage, Inglaterra',
+  },
+  {
+    name:    'Justin Bieber',
+    prof:    'Cantante / Pop Star',
+    flag:    '🇨🇦',
+    photo:   'fotos/justin.png',
+    quote:   '¡Lo estoy sintiendo! ¡Lo estoy sintiendo! Eso es todo lo que puedo decir. — Después de ver Arsenal vs Man United en Los Ángeles, julio 2024.',
+    videoId: 'dOHDMFbNgpQ',
+    origin:  'Ontario, Canadá',
+  },
+  {
+    name:    'Bauletti',
+    prof:    'Streamer · Mernosketti',
+    flag:    '🇦🇷',
+    photo:   'fotos/bauleti.png',
+    quote:   'El sueño del pibe hecho realidad: recorrí el Emirates, vi ganar al Arsenal 3-0 y conocí a Eze. No lo puedo creer todavía.',
+    videoId: 'jSLznIaneN0',
+    origin:  'Argentina',
+  },
+  {
+    name:    'Idris Elba',
+    prof:    'Actor — The Wire, Luther',
+    flag:    '🇬🇧',
+    photo:   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Idris_Elba-7834.jpg/440px-Idris_Elba-7834.jpg',
+    quote:   'Soy del Arsenal de toda la vida. Crecí en Hackney, en el este de Londres, y el Arsenal siempre fue mi equipo.',
+    videoId: 'JvSoz1VExOA',
+    origin:  'Hackney, Londres',
+  },
+  {
+    name:    'Thierry Henry',
+    prof:    'Leyenda del Arsenal',
+    flag:    '🇫🇷',
+    photo:   'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Thierry_Henry_2012.jpg/440px-Thierry_Henry_2012.jpg',
+    quote:   'El Arsenal no es solo un club de fútbol, es una forma de vida. Cuando marcaba en Highbury, sentía que pertenecía a algo enorme.',
+    videoId: 'pazADJGqCfM',
+    origin:  'París, Francia',
+  },
+  {
+    name:    'Oscar Piastri',
+    prof:    'Piloto F1 — McLaren',
+    flag:    '🇦🇺',
+    photo:   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Oscar_Piastri_2023_Bahrain.jpg/440px-Oscar_Piastri_2023_Bahrain.jpg',
+    quote:   'Me hice hincha del Arsenal por la familia de mi novia. Ahora veo todos los partidos que puedo, incluso en los fines de semana de carrera.',
+    videoId: 'k-wZ9WntXLs',
+    origin:  'Melbourne, Australia',
+  },
+];
+
+const celebsGrid = document.getElementById('celebsGrid');
+
+CELEBS.forEach(c => {
+  const card = document.createElement('div');
+  card.classList.add('celeb-card', 'reveal');
+
+  card.innerHTML = `
+    <div class="celeb-header">
+      <img class="celeb-photo" src="${c.photo}" alt="${c.name}"
+           onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(c.name)}&background=EF0107&color=fff&size=64'" />
+      <div class="celeb-info">
+        <div class="celeb-name">${c.name}</div>
+        <div class="celeb-prof">${c.prof}</div>
+      </div>
+      <span class="celeb-flag">${c.flag}</span>
+    </div>
+    <div class="celeb-quote">${c.quote}</div>
+    <div class="celeb-video" data-id="${c.videoId}">
+      <div class="celeb-thumb">
+        <img src="https://img.youtube.com/vi/${c.videoId}/hqdefault.jpg" alt="Video de ${c.name}" />
+        <div class="play-btn">▶</div>
+      </div>
+      <iframe allowfullscreen allow="autoplay"></iframe>
+    </div>
+    <div class="celeb-origin">📍 ${c.origin}</div>
+  `;
+
+  // Click en thumbnail → cargar iframe
+  const thumb  = card.querySelector('.celeb-thumb');
+  const iframe = card.querySelector('iframe');
+  thumb.addEventListener('click', () => {
+    iframe.src = `https://www.youtube.com/embed/${c.videoId}?autoplay=1`;
+    iframe.style.display = 'block';
+    thumb.style.display  = 'none';
+  });
+
+  celebsGrid.appendChild(card);
+  observer.observe(card);
+});
