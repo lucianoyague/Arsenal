@@ -1,4 +1,4 @@
-# ⚔ Arsenal FC — Hinchada Argentina
+# ⚔Arsenal FC — Hinchada Argentina
 
 Página de fan dedicada al Arsenal FC, hecha para hinchas argentinos. Construida con **HTML · CSS · JavaScript** vanilla.
 
